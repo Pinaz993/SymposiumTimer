@@ -1,0 +1,22 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symposium{% block title_suffix %}{% endblock %}</title>
+    <script src="{% static "display/NoSleepMin.js" %}"></script>
+    <script>
+        // This script should keep the screen awake no matter what when run on Android or iOS.
+        // Except on chrome. It won't let videos play without direct interaction.
+        // TODO: Do something about chrome and auto playing videos
+        const noSleep = new NoSleep();
+        noSleep.enable();
+    </script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% block content %}{% endblock %}
+</body>
+</html>
