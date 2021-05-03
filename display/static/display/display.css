@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    justify-content: center;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.timer-overtime {
+    color: #ff0000;
+}
+
+.timer-undertime {
+}
+
+#timer-display {
+    display: block;
+    font-size: 20vw;
+    text-align: center;
+    margin: 0;
+    align-self: center;
+}
