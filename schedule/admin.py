@@ -1,15 +1,16 @@
-from adminsortable2.admin import SortableInlineAdminMixin
+from admin_ordering.admin import OrderableAdmin
 from django.contrib import admin
 from django.db.models import DurationField
 from django.forms import TextInput
 from . import models
 
 
-class TimerInline(SortableInlineAdminMixin, admin.StackedInline):
+class TimerInline(OrderableAdmin, admin.StackedInline):
+    ordering_field_hide_input = True
+    ordering_field = 'order'
     min_num = 1
-    extra = 0
     model = models.Timer
-    fields = ('label', 'duration')
+    fields = ('label', 'duration', 'order')
     formfield_overrides = {
         DurationField: {'widget': TextInput(attrs={'placeholder': 'HH:MM:SS'})}
     }
