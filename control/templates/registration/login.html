@@ -1,0 +1,19 @@
+{% extends 'display/display.html' %}
+{% load static %}
+
+{% block title_suffix %} | Login{% endblock %}
+
+{% block head %}
+    <link href="{% static "control/login.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div id="login-container">
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+</div>
+{% endblock %
