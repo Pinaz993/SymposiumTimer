@@ -1,0 +1,80 @@
+body {
+    background-color: #000000;
+    display: grid;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    grid-template-areas: 'list display'
+                         'list controls';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+#display-container {
+    grid-area: display;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: thin solid #FFFFFF;
+}
+
+#controls-container {
+    grid-area: controls;
+    display: flex;
+    flex-direction: column;
+}
+
+#program-controls-container, #timer-controls-container, #manual-timer-container, #logout-btn-container{
+    margin: 15px;
+}
+
+#load-program-form{
+    display: inline;
+}
+
+#list-container {
+    grid-area: list;
+}
+
+.timer-overtime {
+    color: #ff0000;
+}
+
+.timer-undertime {
+}
+
+#timer-display {
+    display: block;
+    font-size: 5vw;
+    text-align: center;
+    margin: 0;
+    align-self: center;
+}
+
+.confirmation-container {
+    display: grid;
+}
+
+.confirmation-label-container {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmation-label {
+    text-align: center;
+}
+
+.confirmation-yes {
+    grid-row-start: 2;
+}
+
+.confirmation-no {
+
+}
