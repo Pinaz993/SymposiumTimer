@@ -3,11 +3,9 @@
 
 {% block head %}
     <link href="{% static "display/display.css" %}" rel="stylesheet" type="text/css">
-    <script src="{% static "display/easytimer.js" %}"></script>
-    <script src="{% static "display/TimerDisplay.js" %}"></script>
-    <script>
-        // Set up whatever needs to be done on DOM load]
-    </script>
+    <script src="{% static "display/easytimer.min.js" %}"></script>
+    <script src="{% static "display/TimerDisplay.js" %}" defer></script>
+    <script src="{% static "admin/js/vendor/jquery/jquery.min.js"%}"></script>
 {% endblock %}
 
 {% block content %}
