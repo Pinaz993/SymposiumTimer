@@ -1,0 +1,46 @@
+{% extends 'display/base.html' %}
+{% load static %}
+
+{% block title_suffix %} | Control Interface{% endblock %}
+
+{% block head %}
+    <link href="{%static "control/control.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div id="display-container">
+        <p id="timer-display">Timer</p>
+    </div>
+    <div id="controls-container">
+        <div id="timer-controls-container">
+            <button id="previous-timer-button" onclick="previous_timer()">Previous</button>
+            <button id="resume-timer-button" onclick="resume_timer()">Resume</button>
+            <button id="pause-timer-button" onclick="pause_timer(now())">Pause</button>
+            <button id="next-timer-button" onclick="next_timer()">Next</button>
+        </div>
+        <div id="program-controls-container">
+            <button id="unload-program-button" onclick="stop_program()">Unload</button>
+            <form id="load-program-form" onsubmit="event.preventDefault(); load_form_submit()">
+{#              TODO: Add event listener in JS.#}
+                <select id="select-program-list"></select>
+                <input type="submit" id="load-timer-button" value="Load">
+            </form>
+        </div>
+        <div id="manual-timer-container">
+            <form id="manual-timer-form" onsubmit="event.preventDefault(); manual_timer_submit()">
+{#              TODO: Add event listener in JS.#}
+                <input type="text" id="manual-label-input" placeholder="Label">
+                <input type="text" id="manual-duration-input" placeholder="HH:MM:SS" pattern="[0-9:]{0,100}">
+                <input type="submit" id="manual-timer-submit" value="Start Manual Timer">
+            </form>
+        </div>
+        <!--suppress HtmlUnknownTarget -->
+        <form method="post" action="/control/logout/" id="logout-btn-container">
+            {% csrf_token %}
+            <button type="submit" id="logout-btn">Logout</button>
+        </form>
+    </div>
+    <div id="list-container">
+        <div id="schedule-table" class="table-dark tabulator-block-select"></div>
+    </div>
+{% endblock %}

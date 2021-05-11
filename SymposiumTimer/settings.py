@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'admin_ordering',
     'display',
+    'control',
     'schedule',
 ]
 

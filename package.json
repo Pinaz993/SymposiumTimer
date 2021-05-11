@@ -1,0 +1,7 @@
+{
+  "name": "SymposiumTimer",
+  "version": "1.0.0",
+  "dependencies": {
+    "easytimer.js": "^4.3.4"
+  }
+}
