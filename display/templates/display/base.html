@@ -8,8 +8,8 @@
     <script src="{% static "display/NoSleepMin.js" %}"></script>
     <script>
         // This script should keep the screen awake no matter what when run on Android or iOS.
-        // Except on chrome. It won't let videos play without direct interaction.
-        // TODO: Do something about chrome and auto playing videos
+        // Except on Chrome. It won't let videos play without direct user interaction.
+        // TODO: Do something about Chrome and auto-playing videos
         const noSleep = new NoSleep();
         noSleep.enable();
         // Much of what I've set up won't work on outdated browsers, and I refuse to support IE at all. It's dead, Jim.
