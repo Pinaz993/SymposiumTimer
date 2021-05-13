@@ -5,8 +5,9 @@
 
 {% block head %}
     <link href="{%static "control/control.css" %}" rel="stylesheet" type="text/css">
-    <script src="{% static "display/TimerDisplay.js"%}" defer></script>
     <script src="{% static "display/easytimer.min.js" %}"></script>
+    <script src="{% static "display/TimerDisplay.js"%}" defer></script>
+    <script src="{% static "control/TimerController.js" %}" defer></script>
 {% endblock %}
 
 {% block content %}
@@ -22,15 +23,13 @@
         </div>
         <div id="program-controls-container">
             <button id="unload-program-button" onclick="stop_program()">Unload</button>
-            <form id="load-program-form" onsubmit="event.preventDefault(); load_form_submit()">
-{#              TODO: Add event listener in JS.#}
+            <form id="load-program-form">
                 <select id="select-program-list"></select>
                 <input type="submit" id="load-timer-button" value="Load">
             </form>
         </div>
         <div id="manual-timer-container">
-            <form id="manual-timer-form" onsubmit="event.preventDefault(); manual_timer_submit()">
-{#              TODO: Add event listener in JS.#}
+            <form id="manual-timer-form">
                 <input type="text" id="manual-label-input" placeholder="Label">
                 <input type="text" id="manual-duration-input" placeholder="HH:MM:SS" pattern="[0-9:]{0,100}">
                 <input type="submit" id="manual-timer-submit" value="Start Manual Timer">
