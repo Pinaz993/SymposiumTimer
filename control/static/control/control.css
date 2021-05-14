@@ -8,8 +8,8 @@ body {
     right: 0;
     grid-template-areas: 'list display'
                          'list controls';
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(0, 50%);
+    grid-template-rows: minmax(0, auto);
     color: #e0e0e0;
     margin: 0;
 }

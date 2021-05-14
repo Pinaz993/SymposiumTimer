@@ -5,6 +5,11 @@ document.getElementById("load-program-form").addEventListener("submit", ev => {
     // TODO: implement program loading from clientside test "database".
 });
 
+function temp_load_prog(prog_id) {
+    // This will load programs from the test dataset. Temporary™.
+
+}
+
 // Manual Timer Form Submit Event Listener
 document.getElementById("manual-timer-form").addEventListener("submit", ev => {
     // Not actually doing anything by default should really be an HTML element attribute, like defer.
@@ -13,6 +18,17 @@ document.getElementById("manual-timer-form").addEventListener("submit", ev => {
 
 });
 
+// Make the table for the timers to sit in, along with all the options. Const, because we'll never be replacing it.
+const timer_table = new Tabulator("#schedule-table", {
+    columns:[
+        {field:"order", visible:false, sorter:"number"},
+        {field:"lable", headerSort:false, title:"Label"},
+        {field:"duration", headerSort:false, title:"Duration"}
+    ],
+    initialSort:[
+        {column: "order", dir:"asc"}
+    ],
+})
 // Temporary™ Client Side Setup
 // At this point in the game, our page and all dependant files have loaded. Users can't access this page without logging
 // in, so we shouldn't have anyone here who shouldn't be. Since we're testing client side only, we're going to take it
