@@ -2,12 +2,12 @@
 document.getElementById("load-program-form").addEventListener("submit", ev => {
     // First, don't actually load anything, even the top of the page.
     ev.preventDefault();
-    // TODO: implement program loading from clientside test "database".
+    temp_load_prog(document.getElementById("select-program-list").value);
 });
 
 function temp_load_prog(prog_id) {
     // This will load programs from the test dataset. Temporary™.
-
+    schedule_table.setData(programs[prog_id].timers);
 }
 
 // Manual Timer Form Submit Event Listener
@@ -19,15 +19,15 @@ document.getElementById("manual-timer-form").addEventListener("submit", ev => {
 });
 
 // Make the table for the timers to sit in, along with all the options. Const, because we'll never be replacing it.
-const timer_table = new Tabulator("#schedule-table", {
+const schedule_table = new Tabulator("#schedule-table", {
     columns:[
+        {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30},
         {field:"order", visible:false, sorter:"number"},
-        {field:"lable", headerSort:false, title:"Label"},
+        {field:"label", headerSort:false, title:"Label"},
         {field:"duration", headerSort:false, title:"Duration"}
     ],
-    initialSort:[
-        {column: "order", dir:"asc"}
-    ],
+    initialSort:[{column: "order", dir:"asc"}],
+    movableRows:true
 })
 // Temporary™ Client Side Setup
 // At this point in the game, our page and all dependant files have loaded. Users can't access this page without logging
