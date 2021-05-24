@@ -138,7 +138,16 @@ function updateRealClock() {
  * Changes timerDisplay to display the time values from the Timer. To be used as a callback.
  */
 function updateTimer() {
-    timerDisplay.innerHTML = timer.getTimeValues().toString();
-    // TODO: Change timer such that it only uses as many digits as necessary.
+    timerDisplay.innerHTML = get_hms_from_seconds(timer.getTimeValues());
+}
+
+function get_hms_from_seconds(seconds){
+    let hours = Math.floor(seconds/3600);
+    seconds -= hours * 3600;
+    let minutes = Math.floor(seconds/60);
+    seconds -= minutes * 60;
+    if(hours !== 0) return `${hours.toString()}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2,"0")}`;
+    else if(minutes !== 0) return `${minutes.toString()}:${seconds.toString().padStart(2,"0")}`;
+    else return seconds.toString();
 }
 //</editor-fold>
