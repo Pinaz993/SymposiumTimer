@@ -1,6 +1,6 @@
 // Load Program Form Submit Event Listener
 document.getElementById("load-program-form").addEventListener("submit", ev => {
-    // First, don't actually load anything, even the top of the page.
+    // First, don't actually load anything, not even the top of the page.
     ev.preventDefault();
     temp_load_prog(document.getElementById("select-program-list").value);
 });
@@ -24,7 +24,11 @@ const schedule_table = new Tabulator("#schedule-table", {
         {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30},
         {field:"order", visible:false, sorter:"number"},
         {field:"label", headerSort:false, title:"Label"},
-        {field:"duration", headerSort:false, title:"Duration"}
+        // Instead of showing the raw number of seconds, use display's method for converting to HH:MM:SS smartly.
+        {field:"duration", headerSort:false, title:"Duration", formatter: (c, _, __) => {
+                return get_hms_from_seconds(c.getValue());
+            }
+        }
     ],
     initialSort:[{column: "order", dir:"asc"}],
     movableRows:true
@@ -36,7 +40,7 @@ const schedule_table = new Tabulator("#schedule-table", {
 // all programs in the database. Let's fake that with a clientside array of dictionaries representing programs.
 let programs = [
     {
-        id: 1,
+        id: 0,
         name: "Black Hat USA 2021",
         timers: [
             {order:1, label: "Running Doom on a Nest Thermostat", duration: 1800},
@@ -46,7 +50,7 @@ let programs = [
         ]
     },
     {
-        id: 2,
+        id: 1,
         name: "DEF CON 29",
         timers: [
             {order:1, label: "Home routers are still insecure", duration: 300},
@@ -56,7 +60,7 @@ let programs = [
         ]
     },
     {
-        id: 3,
+        id: 2,
         name: "SANS Purple Team Summit and Training 2021",
         timers: [
             {order:1, label: "Smart Engineers Sometimes Do Dumb Things", duration: 300},
@@ -66,7 +70,7 @@ let programs = [
         ]
     },
     {
-        id: 4,
+        id: 3,
         name: "CyberCon VI",
         timers: [
             {order:1, label: "Poorly Engineered Web Services Are Getting Worse", duration: 300},
