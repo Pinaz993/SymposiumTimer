@@ -142,12 +142,17 @@ function updateTimer() {
 }
 
 function get_hms_from_seconds(seconds){
+    // Get hours, then subtract them from seconds
     let hours = Math.floor(seconds/3600);
     seconds -= hours * 3600;
+    // Ditto for minutes
     let minutes = Math.floor(seconds/60);
     seconds -= minutes * 60;
+    // Is there at least one hour? If so, show hours, minutes and seconds.
     if(hours !== 0) return `${hours.toString()}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2,"0")}`;
+    // No hours, how about at least one minute? If so, show minutes and seconds.
     else if(minutes !== 0) return `${minutes.toString()}:${seconds.toString().padStart(2,"0")}`;
+    // No? Just show the seconds, then.
     else return seconds.toString();
 }
 //</editor-fold>
