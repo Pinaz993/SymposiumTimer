@@ -4,6 +4,9 @@ const timer = new easytimer.Timer();
 const timerDisplay = document.getElementById("timer-display")
 // Tell the timer that when it reaches its target, go overtime at zero seconds.
 timer.addEventListener('targetAchieved', e => {go_overtime(0)});
+// TODO: Ajax fetching goes here.
+// For now, we'll just show a realtime clock.
+go_real_time();
 
 /**
  * A helper function for getting the current UNIX time in seconds.
@@ -91,7 +94,7 @@ function go_undertime(seconds) {
 }
 
 /**
- * Change the timer to a realtime clock, and change 'secondsUpdated' to display such a clock.
+ * Changes the timer to a realtime clock, and changes 'secondsUpdated' to display such a clock.
  */
 function go_real_time() {
     // Change 'secondsUpdated' to reflect the timer's current purpose.
