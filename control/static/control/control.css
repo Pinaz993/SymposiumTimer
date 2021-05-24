@@ -80,5 +80,5 @@ body {
 }
 
 .tabulator-row-handle-bar{
-    background: #DDDDDD;
+    background: #DDDDDD !important;
 }
