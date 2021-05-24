@@ -78,3 +78,7 @@ body {
 .confirmation-no {
 
 }
+
+.tabulator-row-handle-bar{
+    background: #DDDDDD;
+}
